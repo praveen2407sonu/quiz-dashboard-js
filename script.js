@@ -1,12 +1,12 @@
-let startquiz = document.querySelector("#startquiz");
 let main = document.querySelector(".main");
-let head = document.querySelector(".head");
-let head1 = document.querySelector(".head1");
+let startquiz = document.querySelector("#startquiz");
 let notification = document.querySelector(".notifictaionmain");
 let main2 = document.querySelector(".main2");
 let main3 = document.querySelector(".main3");
 let form = document.querySelector(".form");
 let UserName = document.querySelector("#id");
+let head = document.querySelector(".head");
+let head1 = document.querySelector(".head1");
 let input = document.querySelector(".form input");
 let formbutton1 = document.querySelector(".button1");
 let formbutton2 = document.querySelector(".button2");
@@ -28,20 +28,21 @@ let time = document.querySelector(".timer");
 
 let username = "";
 
-UserName.addEventListener("click", () => {
-  form.classList.remove("hidden");
-});
-
 formbutton1.addEventListener("click", () => {
   username = input.value.trim();
   if (username !== "") {
     UserName.innerHTML = username;
+    // head1.innerHTML = ` ${username}`;
     form.classList.add("hidden");
     notification.classList.remove("hidden");
     setTimeout(() => {
       notification.classList.add("hidden");
     }, 2000);
   }
+});
+
+UserName.addEventListener("click", () => {
+  form.classList.remove("hidden");
 });
 
 formbutton2.addEventListener("click", () => {
@@ -76,15 +77,11 @@ coding.addEventListener("click", () => {
   fetchAPI("https://opentdb.com/api.php?amount=5&category=18&difficulty=easy&type=multiple");
 });
 
-
-
-
 let i = 0;
 let timer = 5;
 let score = 0;
 let interval;
 let arrayquestions = [];
-
 
 
 function disableCategories() {
@@ -136,15 +133,16 @@ function getQuestion() {
 
 
   main2.addEventListener("click", ()=>{
-    score = 0;
-   scoreDisplay.innerHTML = `Score: ${score}`;
+  
+   
   })
 
   document.querySelectorAll(".answer").forEach(btn => {
     btn.addEventListener("click", () => {
       if (btn.textContent === question.correct_answer) {
          score++;
-         scoreDisplay.innerHTML = `Score: ${score}`; 
+         resultScore.innerHTML = `Score: ${score}`; 
+         console.log(score)
         btn.style.backgroundColor = "yellow";
       } else {
         btn.style.backgroundColor = "red";
@@ -153,7 +151,6 @@ function getQuestion() {
     });
   });
 }
-
 
 // main2.addEventListener("click", ()=>{
 //   score = 0;
@@ -165,7 +162,7 @@ function getQuestion() {
 
 // if (btn.textContent === question.correct_answer) {
 //   score++;
-//   scoreDisplay.innerHTML = `Score: ${score}`;  // Update score display
+//   scoreDisplay.innerHTML = `Score: ${score}`;  
 //   btn.style.backgroundColor = "green";
 // } else {
 //   btn.style.backgroundColor = "red";
@@ -182,6 +179,16 @@ function nextQuestion() {
     endQuiz();
   }
 }
+
+// quitbtn.addEventListener("click", () => {
+  //   clearInterval(interval); 
+  //   main3.classList.add("hidden"); 
+  //   quizEnd.classList.remove("hidden");
+  //   quizEnd1.classList.remove("hidden"); 
+  //   quizEnd2.classList.remove("hidden"); 
+  //   resultScore.innerHTML = `Score: ${score}/${arrayquestions.length}`; // Display the final score
+  // });
+
 
 nextbtn.addEventListener("click", () => {
   nextQuestion();
@@ -201,20 +208,14 @@ function endQuiz() {
 
    location.reload();
 
-  // quitbtn.addEventListener("click", () => {
-  //   clearInterval(interval); // Stop the timer if it's running
-  //   main3.classList.add("hidden"); // Hide the quiz interface if necessary
-  //   quizEnd.classList.remove("hidden"); // Show the general quiz end section
-  //   quizEnd1.classList.remove("hidden"); // Show specific end section 1
-  //   quizEnd2.classList.remove("hidden"); // Show specific end section 2
-  //   resultScore.innerHTML = `Score: ${score}/${arrayquestions.length}`; // Display the final score
-  // });
-  
   
 });
 
 getResultBtn.addEventListener("click", () => {
-  alert(`Final Score: ${score}/${arrayquestions.length}`);
+  // alert(`Final Score: ${score}/${arrayquestions.length}`);
+   resultScore.innerHTML = `Score: ${score}`;
+  quizEnd.classList.remove("hidden"); 
+  // resultScore.innerHTML = score; 
 });
 
 playAgainBtn.addEventListener("click", () => {
@@ -238,5 +239,7 @@ function endQuiz() {
   quizEnd1.classList.remove("hidden");
   quizEnd2.classList.remove("hidden");
 
-  resultScore.innerHTML = `Score: ${score}/${arrayquestions.length}`;
+  // resultScore.innerHTML = `Score: ${score}`; 
+
+   resultScore.innerHTML = `Score: ${score}`;
 }
