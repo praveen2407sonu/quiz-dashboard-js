@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz</title>
+</head>
+
+<body>
+    
+    <header>
+        <div class="head">
+            <h1>Quiz</h1>
+            <button id="id">Create User</button>
+        </div>
+
+        <div class="notifictaionmain hidden">
+            <p class="notifictaion">User Created Successfully !</p>
+        </div>
+    </header>
+     <section> 
+
+
+        <div class="main ">
+
+            <div class="start">
+                <h2>Take your <span class="highlight" style="color: red;">Knowledge</span><br>to Next level</h2>
+                <button id="startquiz">Start quiz</button>
+            </div>
+            <div class="startimg">
+                <img src="./image/image quiz.webp" alt="">
+            </div>
+        
+
+            <div class="form hidden">
+                <div>
+                    <label for="">UserName</label>
+                    <input type="text" placeholder="enter your name">
+                </div>
+                <div class="btn1">
+                    <button class="button1">create</button>
+                    <button class="button2">Quit</button>
+                </div>
+
+            </div>
+        </div>
+    
+        <div class="main2 hidden">
+            <header>
+                <div class="head1">
+                    <h1>Quiz</h1>
+                    <nav>
+                        <ul>
+                            <li>Home</li>
+                            <li>Quiz</li>
+                            <li>Score</li>
+                            <!-- <li class="scoreDisplay" >Score</li> -->
+                            
+                        </ul>
+                    </nav>
+                    <button id="id">Create User</button>
+                </div>
+            </header>
+            <div class="center">
+                <div class="discriptionpage">
+                    <p class="fontsize">Welcome to Quiz app</p>
+                    <h4>select topic</h4>
+                    <p class="music">Music</p>
+                    <p class="modern">modern art</p>
+                    <p class="coding">coding</p>
+
+                    <button class="main2start">Start</button>
+                </div>
+                <!-- <div class="buttonspara">
+              </div>  -->
+            </div>
+
+        </div>
+
+
+        <div class="main3 hidden ">
+            <div id="targetcenter">
+                <div class="flex1">
+                    <h2>coding quiz</h2>
+                    <div class="timer">5</div>
+                </div>
+
+                <div class="flex2">
+
+
+
+
+                    <!-- <div class="quizend">
+                        <h1>Well done ! Your Answered All The Questions. </h1>
+                        <p clas="resultscore"></p>
+                        <div class="enquiz">
+                            <button clas="endbtn1">Get Result</button>
+                            <button clas="endbtn2">Play again</button>
+                            <button clas="endbtn3">Quit</button>
+                        </div>
+                    </div> -->
+
+                    <div class="quizend hidden ">
+                        <h1>Well done! You answered all the questions.</h1>
+                        <p class="resultscore"></p>
+                        <div class="enquiz">
+                          <button class="endbtn1">Get Result</button>
+                          <button class="endbtn2">Play again</button>
+                          <button class="endbtn3">Quit</button>
+                        </div>
+                      </div>
+
+                </div>
+                <div class="flex2btn">
+                    <button class="nextbtn">Next</button>
+                    <button class="quitbtn">Quit</button>
+                </div>
+            </div>
+
+        
+             <div class="quizend1 hidden">
+                <h3>Well done !  Your Answered All The Questions. </h3>
+                <p class="resultscore"></p>
+                <div class="quizend2  hidden">
+                    <button class="endbtn1">Get Result</button>
+                    <a href=""><button class="endbtn2">Play again</button></a>
+                    <button class="endbtn3">Quit</button>
+                </div>
+              </div> 
+
+
+
+        </div>
+     </section> 
+
+    <!-- <div class="scoreDisplay">Score: 0</div> -->
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
