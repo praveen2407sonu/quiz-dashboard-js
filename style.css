@@ -24,7 +24,6 @@ header{
 }
 
 .notifictaionmain{
-    /* display: inline-block; */
     position: absolute;
     right: 146px;
     top: 45px;
@@ -52,10 +51,11 @@ header button{
 }
 
 #startquiz{
-    padding: 0.3rem;
-    width: 15%; 
+    padding: 0.5rem;
+    width: 20%; 
     background-color: #161212;
     color:#fff;
+    font-size: 16px;
 }
 section{
     background-color:#bde3fb;
@@ -71,12 +71,13 @@ section{
 }
 
 .start{
-    width:38%;
+    width:50%;
+    font-size: 20px;
    
 }   
 .startimg{
-    width:20%;
-    height:30%;
+    width:40%;
+    height:50%;
 
 }
 .startimg img{
@@ -275,7 +276,7 @@ section{
    color:#fff;}
 
   .hidden {
-    display: none;
+     display: none; 
   }
   
   .flex2 button {

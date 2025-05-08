@@ -106,7 +106,7 @@ function startTimer() {
     if (timer === 0) {
       nextQuestion();
     }
-  }, 2000);
+  }, 1500);
 }
 
 async function fetchAPI(API) {
@@ -132,17 +132,18 @@ function getQuestion() {
   
 
 
-  main2.addEventListener("click", ()=>{
+  // main2.addEventListener("click", ()=>{
   
    
-  })
+  // })
 
   document.querySelectorAll(".answer").forEach(btn => {
     btn.addEventListener("click", () => {
       if (btn.textContent === question.correct_answer) {
          score++;
-         resultScore.innerHTML = `Score: ${score}`; 
-         console.log(score)
+        //  resultScore.innerHTML = `Score: ${score}`; 
+        console.log(score)
+        //  alert(`Score: ${score}`);
         btn.style.backgroundColor = "yellow";
       } else {
         btn.style.backgroundColor = "red";
@@ -152,21 +153,26 @@ function getQuestion() {
   });
 }
 
+getResultBtn.addEventListener("click", (e) => {
+  // alert(`Final Score: ${score}/${arrayquestions.length}`);
+  
+   resultScore.innerHTML = `Score: ${score}`; 
+  const value=e.target.value
+  // alert(`Score: ${score}`);
+  console.log("hello");
+});
+  //  resultScore.innerHTML = `Score: ${score}`;
+  // quizEnd.classList.remove("hidden"); 
+  // resultScore.innerHTML = score; 
+
+
+
 // main2.addEventListener("click", ()=>{
 //   score = 0;
 //  scoreDisplay.innerHTML = `Score: ${score}`;
 // })
 
 
-// let scoreDisplay = document.querySelector(".scoreDisplay");
-
-// if (btn.textContent === question.correct_answer) {
-//   score++;
-//   scoreDisplay.innerHTML = `Score: ${score}`;  
-//   btn.style.backgroundColor = "green";
-// } else {
-//   btn.style.backgroundColor = "red";
-// }
 
 
 
@@ -195,37 +201,6 @@ nextbtn.addEventListener("click", () => {
 });
 
 
-// quizEnd.document.querySelector(".quizend")
-
-function endQuiz() {
-  clearInterval(interval);
-  maindiv.innerHTML = "";
-  quizEnd.classList.remove("hidden");
-  resultScore.innerHTML = `Score: ${score}/${arrayquestions.length}`;
-}
-
- quitbtn.addEventListener("click", () => {
-
-   location.reload();
-
-  
-});
-
-getResultBtn.addEventListener("click", () => {
-  // alert(`Final Score: ${score}/${arrayquestions.length}`);
-   resultScore.innerHTML = `Score: ${score}`;
-  quizEnd.classList.remove("hidden"); 
-  // resultScore.innerHTML = score; 
-});
-
-playAgainBtn.addEventListener("click", () => {
-  location.reload();
-});
-
-quitGameBtn.addEventListener("click", () => {
-  location.reload();
-});
-
 
 let quizEnd1 = document.querySelector(".quizend1");
 let quizEnd2 = document.querySelector(".quizend2");
@@ -238,8 +213,54 @@ function endQuiz() {
   
   quizEnd1.classList.remove("hidden");
   quizEnd2.classList.remove("hidden");
+  // getResultBtn.classList.remove("hidden");
+  // playAgainBtn.classList.remove("hidden");
+  // quitGameBtn.classList.remove("hidden");
 
   // resultScore.innerHTML = `Score: ${score}`; 
 
    resultScore.innerHTML = `Score: ${score}`;
 }
+
+// quizEnd.document.querySelector(".quizend")
+
+// function endQuiz() {
+//   clearInterval(interval);
+//   maindiv.innerHTML = "";
+//   quizEnd.classList.remove("hidden");
+//   // resultScore.innerHTML = `Score: ${score}/${arrayquestions.length}`;
+//   resultScore.textContent =` Score: ${score}/${questions.length}`;
+// }
+
+ quitbtn.addEventListener("click", () => {
+
+   location.reload();
+
+  
+});
+
+
+
+playAgainBtn.addEventListener("click", () => {
+  //  location.reload();
+  // // disableCategories();
+  i = 0;
+  timer = 5;
+  main2.classList.add("hidden")
+  main3.classList.remove("hidden")
+  main.classList.add("hidden")
+  heading.classList.add("hidden")
+  quizEnd.classList.add("hidden")
+
+  fetchAPI(api[value])
+
+});
+
+quitGameBtn.addEventListener("click", () => {
+  location.reload();
+});
+
+
+
+
+
